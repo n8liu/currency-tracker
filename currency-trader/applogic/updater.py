@@ -1,4 +1,5 @@
 #from datetime import datetime
+from django.conf import settings
 import requests
 import numpy as np
 from app.models import Candle, Aroon, Atr, Chaikin, Sma, Ssl 
@@ -8,7 +9,7 @@ def update():
     count = 2
     response = requests.get('https://api-fxpractice.oanda.com/v3/instruments/USD_JPY/candles',
                             headers={'Content-Type': 'application/json',
-                                     'Authorization': 'Bearer 51c184901981e2067116757c1d5319b4-9fc592249cb81e5246d1a2ce86f72d90',},
+                                     'Authorization': settings.OANDA_PRACTICE_API_KEY,},
                             params=(('count', str(count)),
                                     ('price', 'M'),
                                     ('granularity', 'M5'),))
@@ -26,7 +27,7 @@ def update():
 def update_indi(count):
     response = requests.get('https://api-fxpractice.oanda.com/v3/instruments/USD_JPY/candles',
                             headers={'Content-Type': 'application/json',
-                                     'Authorization': 'Bearer 51c184901981e2067116757c1d5319b4-9fc592249cb81e5246d1a2ce86f72d90',},
+                                     'Authorization': settings.OANDA_PRACTICE_API_KEY,},
                             params=(('count', str(count)),
                                     ('price', 'M'),
                                     ('granularity', 'M5'),))
