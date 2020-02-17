@@ -1,4 +1,5 @@
 from apscheduler.schedulers.background import BackgroundScheduler
+from datetime import date
 from .updater import *
 
 def start():
@@ -10,3 +11,10 @@ def start():
     scheduler.add_job(update_sma, 'interval', minutes=1)
     scheduler.add_job(update_ssl, 'interval', minutes=1)
     scheduler.start()
+
+    if date.isocalendar()[2] == 5 and date.hour >= 13:
+        print("closed")
+        scheduler.shutdown
+    if date.isocalendar()[2] == 7 and date.hour >= 14:
+        print("open")
+        scheduler.start()
