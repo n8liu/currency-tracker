@@ -1,9 +1,8 @@
 from rest_framework import viewsets
 from django.shortcuts import render
-from .models import Candle
+from .models import *
 from django.contrib.auth.models import User, Group
-from .serializers import CandleSerializer, UserSerializer, GroupSerializer
-
+from .serializers import *
 import requests
 import json
 
@@ -27,6 +26,26 @@ def home(request):
 class CandleViewSet(viewsets.ModelViewSet):
     queryset = Candle.objects.all()
     serializer_class = CandleSerializer
+
+class AroonViewSet(viewsets.ModelViewSet):
+    queryset = Aroon.objects.all()
+    serializer_class = AroonSerializer
+
+class AtrViewSet(viewsets.ModelViewSet):
+    queryset = Atr.objects.all()
+    serializer_class = AtrSerializer
+
+class ChaikinViewSet(viewsets.ModelViewSet):
+    queryset = Chaikin.objects.all()
+    serializer_class = ChaikinSerializer
+
+class SmaViewSet(viewsets.ModelViewSet):
+    queryset = Sma.objects.all()
+    serializer_class = SmaSerializer
+
+class SslViewSet(viewsets.ModelViewSet):
+    queryset = Ssl.objects.all()
+    serializer_class = SslSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
