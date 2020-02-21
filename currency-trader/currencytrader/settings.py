@@ -14,7 +14,7 @@ SECRET_KEY = 't2-sh3v02d#-g@2&^qzl1c(nr+#i*#hp$o@uar1vuk2s!xofr^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -65,15 +65,15 @@ WSGI_APPLICATION = 'currencytrader.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 DB_USERNAME = config('DB_USERNAME', default='')
 DB_PASSWORD = config('DB_PASSWORD', default='')
-
+DB_NAME = config('DB_NAME', default='')
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'practice_db_1',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': DB_NAME,
         'USER': DB_USERNAME,
         'PASSWORD': DB_PASSWORD,
         'HOST': 'localhost',
-        'PORT': '5432'
+        'PORT': '',
     }
 }
 
@@ -115,6 +115,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 OANDA_PRACTICE_API_KEY= config('OANDA_PRACTICE_API_KEY', default='')
 

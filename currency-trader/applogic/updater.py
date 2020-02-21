@@ -12,7 +12,7 @@ def update():
                                      'Authorization': settings.OANDA_PRACTICE_API_KEY,},
                             params=(('count', str(count)),
                                     ('price', 'M'),
-                                    ('granularity', 'M5'),))
+                                    ('granularity', 'M1'),))
     candle = response.json()
     c = Candle(complete=str(candle['candles'][0]['complete']),
                volume=str(candle['candles'][0]['volume']),
