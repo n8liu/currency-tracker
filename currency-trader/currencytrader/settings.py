@@ -63,13 +63,15 @@ WSGI_APPLICATION = 'currencytrader.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+DB_USERNAME = config('DB_USERNAME', default='')
+DB_PASSWORD = config('DB_PASSWORD', default='')
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'practice_db_1',
-        'USER': 'n8wyliu',
-        'PASSWORD': 'W0lfpack',
+        'USER': DB_USERNAME,
+        'PASSWORD': DB_PASSWORD,
         'HOST': 'localhost',
         'PORT': '5432'
     }
