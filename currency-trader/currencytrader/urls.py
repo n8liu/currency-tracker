@@ -20,6 +20,11 @@ from app import views
 
 router = routers.DefaultRouter()
 router.register(r'candles', views.CandleViewSet)
+router.register(r'aroons', views.AroonViewSet)
+router.register(r'atrs', views.AtrViewSet)
+router.register(r'chaikins', views.ChaikinViewSet)
+router.register(r'smas', views.SmaViewSet)
+router.register(r'ssls', views.SslViewSet)
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 
