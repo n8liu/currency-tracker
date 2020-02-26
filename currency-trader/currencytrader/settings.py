@@ -9,12 +9,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 't2-sh3v02d#-g@2&^qzl1c(nr+#i*#hp$o@uar1vuk2s!xofr^'
+SECRET_KEY = config('SECRET_KEY', default='')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = [config('PRODUCTION_IP_ADDRESS', default=''),'localhost']
 
 
 # Application definition
@@ -63,9 +63,10 @@ WSGI_APPLICATION = 'currencytrader.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+DB_NAME = config('DB_NAME', default='')
 DB_USERNAME = config('DB_USERNAME', default='')
 DB_PASSWORD = config('DB_PASSWORD', default='')
-DB_NAME = config('DB_NAME', default='')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -119,5 +120,4 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 OANDA_PRACTICE_API_KEY= config('OANDA_PRACTICE_API_KEY', default='')
-
 OANDA_API_KEY= config('OANDA_API_KEY', default='')
