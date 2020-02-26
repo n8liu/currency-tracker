@@ -10,7 +10,7 @@ def start():
     #scheduler.add_job(update_chaikin, 'interval', minutes=15)
     #scheduler.add_job(update_sma, 'interval', minutes=15)
     #scheduler.add_job(update_ssl, 'interval', minutes=15)
-    #scheduler.start()
+    scheduler.start()
 
     date = datetime.now()
     if date.isocalendar()[2] == 5 and date.hour >= 13:
