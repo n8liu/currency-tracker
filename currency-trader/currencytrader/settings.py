@@ -14,7 +14,7 @@ SECRET_KEY = config('SECRET_KEY', default='')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [config('DEVELOPMENT_IP_ADDRESS', default=''),'localhost']
+ALLOWED_HOSTS = [config('IP_ADDRESS', default=''),'localhost']
 
 
 # Application definition
@@ -67,9 +67,9 @@ WSGI_APPLICATION = 'currencytrader.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DEV_DB_NAME', default=''),
-        'USER': config('DEV_DB_USERNAME', default=''),
-        'PASSWORD': config('DEV_DB_PASSWORD', default=''),
+        'NAME': config('DB_NAME', default=''),
+        'USER': config('DB_USERNAME', default=''),
+        'PASSWORD': config('DB_PASSWORD', default=''),
         'HOST': 'localhost',
         'PORT': '',
     }
