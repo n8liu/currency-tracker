@@ -14,7 +14,7 @@ SECRET_KEY = config('SECRET_KEY', default='')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = [config('IP_ADDRESS', default=''),'localhost']
+ALLOWED_HOSTS = [config('PRODUCTION_IP_ADDRESS', default=' '), 'localhost']
 
 
 # Application definition
