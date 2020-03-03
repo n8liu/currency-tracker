@@ -6,4 +6,4 @@ class AppConfig(AppConfig):
 
     def ready(self):
         from applogic import scheduler
-        scheduler.start()
+        scheduler.begin()

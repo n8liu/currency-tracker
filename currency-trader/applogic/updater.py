@@ -30,7 +30,7 @@ def update_indi(count):
                                      'Authorization': settings.OANDA_PRACTICE_API_KEY,},
                             params=(('count', str(count)),
                                     ('price', 'M'),
-                                    ('granularity', 'M5'),))
+                                    ('granularity', 'M1'),))
     candle = response.json()
     for i in range(count):
             if i == 0:
